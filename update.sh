@@ -11,15 +11,16 @@ all_tags=$(wget -q https://registry.hub.docker.com/v1/repositories/${image}/tags
 current_tags=$(curl https://raw.githubusercontent.com/docker-library/official-images/master/library/${image} 2>/dev/null | grep Tags | sed -e "s/^Tags: //" | tr ',' '\n' | tr -d ' ')
 #echo "${current_tags}"
 
+set -x
 tags=${current_tags}
 
-# Generate Dockerfiles
-folder_prefix="build/mysql-low-memory-"
-rm -r ${folder_prefix}*/ 2>/dev/null || true
+# Generate build
+build_dir="build"
+rm -r "$build_dir" 2>/dev/null || true
 for tag in $tags
 do
-	directory="${folder_prefix}${tag}"
-	mkdir "$directory"
+	directory="${build_dir}/${tag}"
+	mkdir -p "$directory"
 
 	cp low-memory.cnf $directory/
 	cat <<EOF > $directory/Dockerfile
