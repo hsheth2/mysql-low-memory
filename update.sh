@@ -14,7 +14,7 @@ current_tags=$(curl https://raw.githubusercontent.com/docker-library/official-im
 tags=${current_tags}
 
 # Generate Dockerfiles
-folder_prefix="mysql-low-memory-"
+folder_prefix="build/mysql-low-memory-"
 rm -r ${folder_prefix}*/ 2>/dev/null || true
 for tag in $tags
 do
