@@ -14,18 +14,18 @@ current_tags=$(curl https://raw.githubusercontent.com/docker-library/official-im
 tags=${current_tags}
 
 # Generate Dockerfiles
-folder_prefix="low-memory-mysql-"
+folder_prefix="mysql-low-memory-"
 rm -r ${folder_prefix}*/ 2>/dev/null || true
 for tag in $tags
 do
 	directory="${folder_prefix}${tag}"
 	mkdir "$directory"
 
-	cp my-low-memory.cnf $directory/
+	cp low-memory.cnf $directory/
 	cat <<EOF > $directory/Dockerfile
 FROM ${image}:${tag}
 
-COPY my-low-memory.cnf /etc/mysql/conf.d/
+COPY low-memory.cnf /etc/mysql/conf.d/
 EOF
 	echo "processed ${tag}"
 done
