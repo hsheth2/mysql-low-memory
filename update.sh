@@ -21,11 +21,11 @@ do
 	directory="${folder_prefix}${tag}"
 	mkdir "$directory"
 
+	cp my-low-memory.cnf $directory/
 	cat <<EOF > $directory/Dockerfile
 FROM ${image}:${tag}
 
-COPY low-memory-my.cnf /etc/mysql/my.cnf
+COPY my-low-memory.cnf /etc/mysql/conf.d/
 EOF
-	cp low-memory-my.cnf $directory/
 	echo "processed ${tag}"
 done
