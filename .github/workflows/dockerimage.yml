@@ -1,8 +1,8 @@
-name: Docker Image CI
+name: Update Docker Hub Images
 
 on:
   schedule:
-  - cron: "0 16 * * *"
+  - cron: "14 19 * * *"
   push:
 
 jobs:
