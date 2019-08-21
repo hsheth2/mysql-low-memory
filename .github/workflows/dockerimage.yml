@@ -13,6 +13,11 @@ jobs:
  
     steps:
     - uses: actions/checkout@v1
+    - name: Login to Docker hub
+      run: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
     - name: Update Dockerfiles
       run: ./update.sh
     - name: Build and push Images
