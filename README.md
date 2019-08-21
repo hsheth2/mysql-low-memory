@@ -6,6 +6,8 @@ This project defines a Dockerfile which replaces the config file of the default 
 
  * http://www.tocker.ca/2014/03/10/configuring-mysql-to-use-minimal-memory.html
  * https://mariadb.com/de/node/579
- 
+
+This is a fork from https://github.com/alexanderkoller/low-memory-mysql It adds an automated build and push to the Docker Hub, and uses the standard mysql image rather than `mysql/mysql-server`. 
+
 ## Using
-See https://hub.docker.com/r/hsheth2/mysql-low-memory. Works the same as the standard mysql image.
+See https://hub.docker.com/r/hsheth2/mysql-low-memory. Works as a drop-in replacement for the standard mysql image.
