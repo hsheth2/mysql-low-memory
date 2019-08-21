@@ -7,3 +7,5 @@ This project defines a Dockerfile which replaces the config file of the default 
  * http://www.tocker.ca/2014/03/10/configuring-mysql-to-use-minimal-memory.html
  * https://mariadb.com/de/node/579
  
+## Using
+See https://hub.docker.com/r/hsheth2/mysql-low-memory. Works the same as the standard mysql image.
