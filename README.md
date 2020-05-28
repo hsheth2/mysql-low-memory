@@ -1,4 +1,5 @@
 # MySQL Low Memory
+![Update Docker Hub Images](https://github.com/hsheth2/mysql-low-memory/workflows/Update%20Docker%20Hub%20Images/badge.svg)
 
 A MySQL Docker image with lower memory requirements. Good for low-memory environments, especially virtual servers.
 
