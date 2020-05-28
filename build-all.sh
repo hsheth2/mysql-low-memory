@@ -13,20 +13,11 @@ current_tags=$(curl https://raw.githubusercontent.com/docker-library/official-im
 
 set -x
 tags=${current_tags}
+echo $tags
 
-# Generate build
-build_dir="build"
-rm -r "$build_dir" 2>/dev/null || true
+# Build images
 for tag in $tags
 do
-	directory="${build_dir}/${tag}"
-	mkdir -p "$directory"
-
-	cp low-memory.cnf $directory/
-	cat <<EOF > $directory/Dockerfile
-FROM ${image}:${tag}
-
-COPY low-memory.cnf /etc/mysql/conf.d/
-EOF
+	./build-one.sh $tag
 	echo "processed ${tag}"
 done

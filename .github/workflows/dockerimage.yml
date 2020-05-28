@@ -18,7 +18,5 @@ jobs:
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-    - name: Update Dockerfiles
-      run: ./update.sh
-    - name: Build and push Images
-      run: ./build.sh
+    - name: Build and push images
+      run: ./build-all.sh
