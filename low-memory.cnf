@@ -24,7 +24,6 @@ skip-name-resolve
 #### http://www.tocker.ca/2014/03/10/configuring-mysql-to-use-minimal-memory.html
 innodb_buffer_pool_size=5M
 innodb_log_buffer_size=256K
-query_cache_size=0
 max_connections=10
 key_buffer_size=8
 thread_cache_size=0
